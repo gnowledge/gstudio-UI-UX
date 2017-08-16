@@ -1,0 +1,63 @@
+.mydesk_page .page_banner {
+  width: 100%;
+  height: 200px;
+  background-image: url("../images/mydesk_banner.png");
+  background-size: 100% 100%;
+  position: relative; }
+  .mydesk_page .page_banner:before {
+    content: ' ';
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: .5;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.2); }
+  .mydesk_page .page_banner .banner_profile {
+    position: absolute;
+    bottom: 30px;
+    left: 40px; }
+    .mydesk_page .page_banner .banner_profile .buddy_logo {
+      display: inline-block;
+      margin-right: 10px;
+      height: 100px;
+      border-radius: 5px;
+      overflow: hidden;
+      background-color: #fff; }
+      .mydesk_page .page_banner .banner_profile .buddy_logo svg {
+        height: 100px;
+        width: 100px; }
+        .mydesk_page .page_banner .banner_profile .buddy_logo svg path {
+          fill: #7a422a; }
+    .mydesk_page .page_banner .banner_profile .banner_heading {
+      color: #fff;
+      display: inline-block;
+      vertical-align: top; }
+      .mydesk_page .page_banner .banner_profile .banner_heading .buddy_name {
+        font-size: 23px;
+        display: block;
+        margin-bottom: 10px; }
+.mydesk_page .page_menu {
+  border-bottom: 1px solid #e5e5e5; }
+  .mydesk_page .page_menu li {
+    padding: 12px 20px 9px; }
+
+ul.nav_menu_1 {
+  margin-bottom: 0px;
+  background-color: #fff; }
+  ul.nav_menu_1 li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 12px 12px 9px;
+    color: #ce7869;
+    cursor: pointer;
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    border-bottom: 3px solid transparent; }
+    ul.nav_menu_1 li:hover {
+      border-bottom: 3px solid #ffc14e; }
+
+/*# sourceMappingURL=mydesk.css.map */
