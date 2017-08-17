@@ -1,0 +1,223 @@
+$border-color: #e0e0e0;
+$header-height: 45px;
+$header-icon-block-width: 70px;
+body {
+    background-color: #f8f8f8;
+}
+
+/*
+    Styling for the Secondary header 1
+*/
+.secondary_header_1 {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+
+    .header_layer_primary {
+        border-bottom: 1px solid $border-color;
+        >div {
+            height: $header-height;
+            display: inline-block;
+            vertical-align: top;
+            line-height: $header-height;
+            &:not(:last-child) {
+                border-right: 1px solid $border-color;
+            }
+        }
+        .header_icon_block {
+            cursor: pointer;
+            width: $header-icon-block-width;
+            font-size: 27px;
+            text-align: center;
+            a {
+                color: #a9a9a9;
+            }
+
+            &:hover {
+                background-color: #e0e0e0;
+            }
+        }
+
+        .back_button {
+            background-color: #f5f5f5;
+        }
+        .header_title {
+            position: relative;
+            width: calc(100% - 140px);
+            color: #2e4051;
+            font-weight: 500;
+            font-size: 18px;
+            letter-spacing: 0.6px;
+            padding-left: 15px;
+
+            .buttons {
+                position: absolute;
+                right: 5px;
+                top: 0px;
+            }
+        }
+        .settings {
+            i {
+                line-height: $header-height;
+                -webkit-transition: -webkit-transform .5s ease-in-out;
+                transition:         transform .5s ease-in-out;
+            }
+            &:hover i{
+                -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+/*
+    Styling for the Secondary header 2
+*/
+$sh_2_icon_color: #ffc14f;
+$sh_2_background_color: #71318b;
+$sh_2_background_color_hover: rgba(244, 244, 244, 0.3);;
+.secondary_header_2 {
+    background-color: $sh_2_background_color;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    >div {
+        height: $header-height;
+        line-height: $header-height;
+        display: inline-block;
+        vertical-align: top;
+        cursor: pointer;
+
+        &:not(:last-child) {
+            border-right: 1px solid #fff;
+        }
+
+        &:hover {
+            background-color: $sh_2_background_color_hover;
+        }
+    }
+
+    .header_icon {
+        font-size: 20px;
+        line-height: $header-height;
+        color: $sh_2_icon_color;
+    }
+
+    .header_icon_block {
+        color: $sh_2_icon_color;
+        width: $header-icon-block-width;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .header_text_block {
+        padding: 0px 15px;
+        a {
+            color: $sh_2_icon_color;
+        }
+    }
+
+    .back_button {
+        border-color: $border-color;
+        background-color: $sh_2_background_color_hover;
+        i {
+            color: #71318b;
+        }
+    }
+
+    .settings {
+        i {
+            transition: transform .5s ease-in-out;
+            -webkit-transition: -webkit-transform .5s ease-in-out;
+        }
+        &:hover i{
+            transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+        }
+    }
+    .header_title {
+        position: relative;
+        color: #fff;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 0.6px;
+        width: calc(100% - 676px);
+    }
+    .pagination {
+        &:not(i) {
+            color: #a983b9;
+        }
+    }
+
+}
+
+/*
+    Styling for the Secondary header 3
+*/
+$sh_3_anchor_color: #492668;
+.secondary_header_3 {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+
+    ul {
+        margin-bottom: 0px;
+        li {
+            font-size: 18px;
+            line-height: $header-height;
+            display: inline-block;
+            vertical-align: top;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+
+            a {
+                color: $sh_3_anchor_color;
+            }
+            &:not(:last-child):after {
+                content: "\f105";
+                color: #c3c3c3;
+                font-family: FontAwesome;
+                font-weight: normal;
+                font-style: normal;
+                margin: 0px 15px 0px;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/*
+    Common css that can be kept at a single place.
+*/
+$primary-button-color: #fff;
+$primary-button-background-color: #00a9ee;
+.blue_round_button {
+    background-color: $primary-button-background-color;
+    color: $primary-button-color;
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 16px;
+    letter-spacing: 0.7px;
+    line-height: 25px;
+}
+
+$nav_menu_1_color: #ce7869;
+$nav_menu_1_bg_color: #fff;
+$nav_menu_1_tab_border: #ffc14e;
+ul.nav_menu_1 {
+    margin-bottom: 0px;
+    background-color: $nav_menu_1_bg_color;
+    li {
+        list-style-type: none;
+        display: inline-block;
+        padding: 12px 12px 9px;
+        color: $nav_menu_1_color;
+        cursor: pointer;
+        font-size: 18px;
+        letter-spacing: 0.8px;
+        border-bottom: 3px solid transparent;
+
+        &:hover {
+            border-bottom: 3px solid $nav_menu_1_tab_border;
+        }
+    }
+}

@@ -1,0 +1,157 @@
+/*Blue color variables*/
+/*Orange color variables*/
+html {
+  height: 100%; }
+
+body {
+  background: linear-gradient(135deg, #e5a426, #ae208c);
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+
+/*Overridding foundation css*/
+.top-bar, .top-bar .name {
+  height: 55px;
+  background: #2e3f51; }
+
+.top-bar .title-area {
+  box-shadow: 0px 0.6px 3px #000;
+  z-index: 20; }
+.top-bar .name {
+  text-align: center; }
+  .top-bar .name .close-menu-dropdown, .top-bar .name .side-bar-button {
+    position: absolute;
+    left: 15px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: 100; }
+.top-bar li.toggle-topbar i {
+  color: #fff;
+  display: inline-block;
+  vertical-align: bottom; }
+.top-bar .top-bar-section ul li {
+  background: #2e3f51; }
+  .top-bar .top-bar-section ul li > a {
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid #4b5b6b;
+    color: #acd4fa;
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.5px; }
+  .top-bar .top-bar-section ul li:hover > a, .top-bar .top-bar-section ul li.active > a {
+    border-left-color: #ffc14e;
+    color: #ce7869; }
+.top-bar .top-bar-section .dropdown li.parent-link a {
+  display: none; }
+.top-bar .top-bar-section .side-bar-menu .add_buddy i {
+  color: #2e3f51;
+  background: #acd4fa; }
+
+@media screen and (min-width: 40.063em) {
+  .top-bar .title-area {
+    box-shadow: none; }
+    .top-bar .title-area .name {
+      text-align: right; }
+  .top-bar .top-bar-section li:not(.has-form) a:not(.button) {
+    cursor: pointer;
+    background: transparent;
+    border-bottom: 0px;
+    line-height: 52px;
+    border-left-width: 0px; }
+    .top-bar .top-bar-section li:not(.has-form) a:not(.button):hover {
+      color: #ce7869;
+      border-bottom: 3px solid #ffc14e; }
+  .top-bar .top-bar-section li:not(.has-form).active a:not(.button) {
+    color: #ce7869;
+    border-bottom: 3px solid #ffc14e; }
+  .top-bar .top-bar-section li:not(.has-form).has-dropdown a:not(.button):hover {
+    color: #acd4fa;
+    border-bottom: 0px; }
+  .top-bar .top-bar-section li.active:not(.has-form) a:not(.button):hover {
+    background: transparent; }
+  .top-bar .top-bar-section .dropdown li:not(.has-form).active a:not(.button) {
+    background: #2e3f51;
+    color: #acd4fa;
+    border-bottom: 0px;
+    border-left-width: 0px;
+    /*&:hover {
+        color: $secondry-blue;
+        border-bottom: 0px;
+    }*/ }
+  .top-bar .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+    border-left-width: 0px;
+    color: #acd4fa;
+    background: #2e3f51; } }
+.group_breadcumbs {
+  display: block;
+  margin: 15px auto;
+  color: #fff;
+  letter-spacing: 1px; }
+
+.group_tile {
+  height: 300px;
+  background: url("../images/course_backbround-1.png") no-repeat;
+  background-size: 100% 100%;
+  padding: 20px 22px;
+  color: #fff;
+  margin-bottom: 30px;
+  cursor: pointer; }
+  .group_tile .group-name {
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 1.1px;
+    margin-bottom: 15px;
+    display: block; }
+  .group_tile .group_desc {
+    letter-spacing: 0.5px;
+    font-size: 17px; }
+
+/*Custom css*/
+[class*="column"] + [class*="column"]:last-child {
+  float: left; }
+
+.icons-medium {
+  font-size: 23px;
+  line-height: 23px;
+  vertical-align: sub; }
+
+.icons-large {
+  font-size: 45px;
+  line-height: 45px; }
+
+.round-icon {
+  border-radius: 100%;
+  height: 20px;
+  font-size: 15px;
+  padding: 2px 5px; }
+
+.hide {
+  display: none !important; }
+
+.badge {
+  display: inline-block;
+  height: 21px;
+  width: 21px;
+  border-radius: 100%;
+  line-height: 21px;
+  text-align: center;
+  font-size: 15px; }
+  .badge.badge-blue {
+    background-color: #acd4fa;
+    color: #fff; }
+
+#menu_bar_gstudio .user-profile-pic-small {
+  height: 46px;
+  width: 46px;
+  margin: 0px 10px; }
+#menu_bar_gstudio .loggedin-user {
+  background: #505e6c;
+  border-radius: 100%;
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  margin: 5px 5px 0px 5px; }
+
+/*# sourceMappingURL=group-list.css.map */

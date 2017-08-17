@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buddy Panel</title>
+    <link rel="stylesheet" type="text/css" href="../bower_components/foundation/css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/foundation/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/foundation-icon-fonts/foundation-icons.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/buddy-panel.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:200,300,400,500,600,700,900" rel="stylesheet">
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/foundation/js/foundation.min.js"></script>
+    <script type="text/javascript" src="../bower_components/foundation/js/foundation/foundation.accordion.js"></script>
+    <script type="text/javascript" src="../bower_components/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="../bower_components/handlebars/handlebars.js"></script>
+</head>
+<body>
+    <h4>Buddy Panel</h4>
+    <div class="buddy_panel" id="sample_buddy_panel">
+        <div class="add_buddy_icon">
+            <a href="#" data-reveal-id="add_buddy_modal">
+              <svg viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <defs>
+                      <rect id="path-1" x="0" y="0" width="35" height="35" rx="5"></rect>
+                      <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="35" height="35" fill="white">
+                          <use xlink:href="#path-1"></use>
+                      </mask>
+                  </defs>
+                  <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="Add-Buddy-Button">
+                          <g>
+                              <use id="Rectangle-5" stroke="#48698A" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
+                              <path d="M16.5775,23.0685 C16.4624994,22.9534994 16.405,22.8193341 16.405,22.666 L16.405,18.503 L12.357,18.503 C12.2036659,18.503 12.0695006,18.4455006 11.9545,18.3305 C11.8394994,18.2154994 11.782,18.0813341 11.782,17.928 L11.782,16.157 C11.782,15.9883325 11.8356661,15.8465006 11.943,15.7315 C12.0503339,15.6164994 12.1883325,15.559 12.357,15.559 L16.405,15.559 L16.405,11.534 C16.405,11.3653325 16.4624994,11.2273339 16.5775,11.12 C16.6925006,11.0126661 16.8266659,10.959 16.98,10.959 L18.958,10.959 C19.1266675,10.959 19.2684994,11.0126661 19.3835,11.12 C19.4985006,11.2273339 19.556,11.3653325 19.556,11.534 L19.556,15.559 L23.558,15.559 C23.7266675,15.559 23.8684994,15.6164994 23.9835,15.7315 C24.0985006,15.8465006 24.156,15.9883325 24.156,16.157 L24.156,17.928 C24.156,18.0966675 24.0985006,18.2346661 23.9835,18.342 C23.8684994,18.4493339 23.7266675,18.503 23.558,18.503 L19.556,18.503 L19.556,22.666 C19.556,22.8346675 19.4985006,22.9726661 19.3835,23.08 C19.2684994,23.1873339 19.1266675,23.241 18.958,23.241 L16.98,23.241 C16.8266659,23.241 16.6925006,23.1835006 16.5775,23.0685 Z" id="+" fill="#507396"></path>
+                          </g>
+                      </g>
+                  </g>
+              </svg>
+            </a>
+        </div>
+    </div>
+    <!--Modal for Buddy.-->
+    <div class="reveal-modal add_buddy_modal" id="add_buddy_modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <div class="modal_header">
+            <div class="modal_title"> Add a buddy</div>
+            <div class="modal_meta"> Multiple users can be logged into the platform. Just specify your color and animal and click add to join the session.</div>
+            <div class="sample_buddy buddy_icon">
+                <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" viewBox="0 0 100 100" version="1.1">
+                    <g transform="translate(-381.42857,-570.93361)">
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="modal_body">
+            <div class="add_buddy_step_1">
+                <div class="step_title">
+                    <span class="step_number"> Step 1</span>
+                    <span>Select your color</span>
+                </div>
+                <div class="step_body">
+
+                </div>
+            </div>
+            <div class="add_buddy_step_2">
+                <div class="step_title">
+                    <span class="step_number">Step 2</span>
+                    <span >Select your animal</span>
+                </div>
+                <div class="step_body">
+                </div>
+            </div>
+        </div>
+        <div class="modal_footer">
+            <div class="left">
+                <a href="#" type="button" class="removeBuddy">
+                    <i class="fa fa-trash-o"></i>
+                </a>
+            </div>
+            <div class="right">
+                <button type="button" class="text_button close_add_buddy_modal">Cancel</button>
+                <button type="button" class="blue_round_button add_buddy_submit">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="reveal-modal delete_buddy_modal small" id="delete_buddy_modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <div>Are you sure you want to delete the buddy?</div>
+        <div class="right">
+            <button type="button" class="text_button close_delete_buddy_modal">Cancel</button>
+            <button type="button" class="blue_round_button delete_buddy_submit">Delete</button>
+        </div>
+
+    </div>
+    <!-- Handle bar templates -->
+    <script id="online_buddy_template" type="text/x-handlebars-template">
+        {{#each onlineBuddies}}
+            {{#if this.isActive}}
+            <div class="buddy_icon {{ifInline this.isDeletable 'buddy_deleteable' ''}}" data={{this.id}}>
+            {{else}}
+            <div class="buddy_icon buddy_inactive {{ifInline this.isDeletable 'buddy_deleteable' ''}}" data={{this.id}}>
+            {{/if}}
+                {{#if this.isDeletable}}
+                    <i class="fa fa-trash-o buddy_delete" data-reveal-id="delete_buddy_modal"></i>
+                {{/if}}
+                {{svgWithColor this.animalObj.svg this.colorObj.code}}
+            </div>
+        {{/each}}
+    </script>
+    <script id="buddy_animal_selector" type="text/x-handlebars-template">
+        {{#each animals}}
+            <div class="buddy_animal" data="{{this.id}}">
+                {{svg this.svg}}
+                <div class="buddy_animal_name">{{this.name}}</div>
+            </div>
+        {{/each}}
+    </script>
+    <script id="buddy_color_selector" type="text/x-handlebars-template">
+        {{#each colors}}
+        <div class="buddy_color_option" data="{{this.id}}">
+            <div class="color_sample" style="background-color: {{this.code}}"></div>
+            <div class="color_name">{{this.color}}</div>
+        </div>
+        {{/each}}
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            $(document).foundation();
+
+            // Handle bar enhancements
+            Handlebars.registerHelper('svg', function(svg) {
+                return new Handlebars.SafeString(svg);
+            });
+
+            Handlebars.registerHelper('ifInline', function(condition, trueCase, falseCase) {
+                let returnVal = condition ? trueCase : falseCase;
+                return new Handlebars.SafeString(returnVal);
+            });
+
+            Handlebars.registerHelper('svgWithColor', function(svg, color) {
+                svg = $(svg).css('fill', color);
+                return new Handlebars.SafeString(svg[0].outerHTML);
+            });
+
+            /**
+             * Array of the online buddies
+             * AnimalId: Integer
+             * ColorId: String
+             * @type {Array}
+             */
+            var onlineBuddies = [
+                {
+                  id: 1,
+                  animalId: 1,
+                  colorId: 1,
+                  isActive: true,
+                  isEditable: false,
+                  isDeletable: true,
+                },
+                {
+                  id: 2,
+                  animalId: 1,
+                  colorId: 6,
+                  isActive: false,
+                  isEditable: false, //Implementation removed.
+                  isDeletable: true,
+                }
+            ];
+            var colorsList = [
+                {
+                  id: 1,
+                  color: 'brown',
+                  code: '#7a422a'
+                },{
+                  id: 2,
+                  color: 'yellow',
+                  code: '#ffd733'
+                },{
+                  id: 3,
+                  color: 'orange',
+                  code: '#ffa000'
+                },{
+                  id: 4,
+                  color: 'pink',
+                  code: '#ff3389'
+                },{
+                  id: 5,
+                  color: 'red',
+                  code: '#e62400'
+                },{
+                  id: 6,
+                  color: 'purple',
+                  code: '#5f00df'
+                },{
+                  id: 7,
+                  color: 'blue',
+                  code: '#158aff'
+                },{
+                  id: 8,
+                  color: 'cyan',
+                  code: '#00c8ee'
+                },{
+                  id: 9,
+                  color: 'violet',
+                  code: '#ec14ff'
+                },{
+                  id: 10,
+                  color: 'green',
+                  code: '#7fcc2c'
+            }];
+
+            var animalList = [
+                {
+                  id: 1,
+                  name: 'fox',
+                  svg: `<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" viewBox="0 0 100 100" version="1.1">
+                            <g transform="translate(-381.42857,-570.93361)">
+                                <path
+                                    style="fill-opacity:1;stroke:none"
+                                    d="m 481.42857,570.93361 0,100 -100,0 0,-100 100,0 z m -11.3125,22.125 c -3.41287,1.17055 -4.78125,3.875 -4.78125,3.875 -5.06064,0.7542 -6.125,-0.3125 -6.125,-0.3125 -2.04649,-3.22939 -5.71875,-3.5625 -5.71875,-3.5625 -1.08411,5.54932 1.40625,8.5 1.40625,8.5 -6.03007,4.63017 -21.03125,1.40625 -21.03125,1.40625 -7.0489,-1.52781 -15.25,0.65625 -15.25,0.65625 -14.86877,3.55047 -17.25678,17.12128 -29.09375,38.71875 24.63808,-3.53901 26.67086,-18.8067 26.84375,-21.1875 -0.19495,3.22498 0.8125,4.84375 0.8125,4.84375 3.23027,5.49022 0.96875,9.8125 0.96875,9.8125 -2.45931,5.56873 0.1875,10.125 0.1875,10.125 2.32699,1.21201 3.3125,-0.46875 3.3125,-0.46875 0,0 -4.03076,-2.79495 2.96875,-12.5625 2.75217,-3.8398 2.5,-8.28125 2.5,-8.28125 0.82036,4.63899 -2,8.4375 -2,8.4375 -5.11974,7.88073 -4.22862,10.80879 -3.5,11.75 1.98121,0.63688 2.125,-0.0625 2.125,-0.0625 -1.93887,-6.67577 5.0625,-13.78125 5.0625,-13.78125 4.52255,-3.44727 4.09375,-5.59375 4.09375,-5.59375 6.97569,4.48727 14.02267,2.89155 16.46875,2.125 0.34667,-3.69073 -2.875,-5.75 -2.875,-5.75 3.44638,1.8339 3.78125,5.4375 3.78125,5.4375 -0.7542,10.01542 6.46875,21.28125 6.46875,21.28125 3.27614,0.94826 3.78125,-0.96875 3.78125,-0.96875 -11.57322,-11.13658 0,-20.09375 0,-20.09375 19.2149,-10.26329 11.125,-26.40625 11.125,-26.40625 1.30022,-5.24059 -1.53125,-7.9375 -1.53125,-7.9375 z m -13.0625,12.78125 c 1.3779,0.12082 1.78125,1.65625 1.78125,1.65625 0,0 -2.20772,0.9666 -3.5,-1.1875 0.69995,-0.3771 1.25945,-0.50902 1.71875,-0.46875 z m 7.40625,0.4375 c 0.98242,-0.0355 1.71875,0.75 1.71875,0.75 0,0 -1.51715,1.87948 -3.65625,0.5625 0.67183,-0.98542 1.34805,-1.29118 1.9375,-1.3125 z m -4.96875,1.4375 c -0.0141,0.12349 -0.0127,0.22114 -0.0312,0.34375 -0.015,0.12526 -0.0387,0.25239 -0.0625,0.375 -0.0459,0.24523 -0.11517,0.50919 -0.1875,0.75 -0.14643,0.47898 -0.33315,0.92689 -0.5625,1.375 -0.22758,0.44899 -0.48839,0.90232 -0.78125,1.3125 -0.14555,0.20553 -0.30821,0.3988 -0.46875,0.59375 -0.0335,0.0406 -0.0593,0.0853 -0.0937,0.125 0.5469,-0.0811 1.30075,-0.0199 1.875,0.6875 0,0 -0.64651,1.1275 -1.3125,1.40625 0.0873,0.0873 0.17981,0.1759 0.28125,0.25 0.10497,0.0882 0.22643,0.17679 0.34375,0.25 l 0.15625,0.0937 0.1875,0.0937 c 0.1279,0.0538 0.27217,0.11567 0.40625,0.15625 0.13408,0.0441 0.26864,0.0646 0.40625,0.0937 0.27786,0.0609 0.55706,0.10648 0.84375,0.125 0.28668,0.0203 0.58567,0.0141 0.875,0 0.29109,-0.0132 0.58567,-0.0166 0.875,-0.0625 -0.55749,0.18789 -1.15458,0.26096 -1.75,0.28125 -0.29815,0.005 -0.60722,0.012 -0.90625,-0.0312 -0.14908,-0.0221 -0.29019,-0.0558 -0.4375,-0.0937 -0.1482,-0.0344 -0.29284,-0.0747 -0.4375,-0.125 l -0.21875,-0.0937 -0.1875,-0.0937 c -0.13408,-0.075 -0.28276,-0.15473 -0.40625,-0.25 -0.12879,-0.0891 -0.22908,-0.20753 -0.34375,-0.3125 l -0.1875,-0.1875 c -0.0503,-0.0582 -0.0765,-0.0954 -0.125,-0.15625 -0.0944,-0.12261 -0.17238,-0.27217 -0.25,-0.40625 -0.0723,-0.13849 -0.16494,-0.26158 -0.21875,-0.40625 -0.0238,-0.0538 -0.044,-0.13281 -0.0625,-0.1875 -0.0573,-0.14025 -0.1003,-0.28049 -0.125,-0.4375 -0.0203,-0.0917 -0.0422,-0.18863 -0.0625,-0.28125 l 0,-0.0937 0.0625,-0.0937 c 0.0811,-0.0785 0.16884,-0.16091 0.25,-0.25 0.0803,-0.0882 0.17061,-0.18863 0.25,-0.28125 0.1579,-0.18348 0.32144,-0.36844 0.46875,-0.5625 0.29374,-0.38724 0.56374,-0.79799 0.8125,-1.21875 0.12085,-0.21171 0.23437,-0.40712 0.34375,-0.625 0.11114,-0.21876 0.21811,-0.43043 0.3125,-0.65625 0.097,-0.22582 0.17149,-0.48587 0.25,-0.71875 0.0406,-0.11644 0.0915,-0.22555 0.125,-0.34375 0.0379,-0.1182 0.0611,-0.22378 0.0937,-0.34375 z m 1.90625,19.90625 c 0,0 -0.81446,0.63678 -1.78125,1.75 -0.59895,0.74185 -1.31737,1.77033 -2.15625,3.21875 -1.26494,2.57045 -1.91102,5.98227 -0.0312,9.875 1.71216,-10.45207 3.96875,-14.84375 3.96875,-14.84375 z m -8.4375,15.15625 c -0.59278,2.97446 -0.53125,4.96875 -0.53125,4.96875 2.76804,2.01826 3.21875,0.5625 3.21875,0.5625 -0.69598,-1.23848 -1.70484,-3.17515 -2.6875,-5.53125 z"/>
+                            </g>
+                        </svg>`
+                },
+                {
+                  id: 2,
+                  name: 'tortoise',
+                  svg: `<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" version="1.1">
+                      <g transform="translate(-555.71429,-439.50506)">
+                        <path
+                           style="fill-opacity:1;stroke:none"
+                           d="m 555.71429,439.50506 0,99.99995 100,0 0,-99.99995 -100,0 z m 49.71875,19.43745 c 0.94578,-0.0685 1.897,0.0465 2.875,0.40625 3.174,1.168 6.62025,4.852 6.78125,8.375 l 0,0.0312 c 0.004,0.019 0,0.0395 0,0.0625 -0.115,2.439 -2.0505,1.41275 -3.5625,0.96875 -3.729,-1.083 -7.752,-1.11975 -11.5,-0.0937 -1.474,0.406 -3.64025,1.761 -3.65625,-0.75 -0.008,-1.612 0.99825,-3.28625 1.90625,-4.53125 1.7115,-2.337 4.3189,-4.2632 7.15625,-4.46875 z m 0.0625,11.65625 c 12.362,-0.154 22.472,9.92575 22.625,22.21875 -0.134,11.167 -8.98375,19.62775 -17.96875,24.96875 -1.11,0.658 -3.341,2.472 -4.75,2.25 -0.647,-0.103 -1.46425,-0.698 -2.03125,-1 -1.431,-0.762 -2.8285,-1.58475 -4.1875,-2.46875 -7.979,-5.202 -15.60275,-13.1035 -15.84375,-23.1875 -0.287,-12.255 9.97025,-22.63625 22.15625,-22.78125 z m -22.75,1.375 c 1.59575,0.0195 3.21562,0.31812 4.59375,1.0625 0.604,0.331 1.735,0.969 1.75,1.75 0.023,1.045 -1.876,2.1125 -2.5,2.8125 -0.624,0.693 -1.1745,1.4105 -1.6875,2.1875 -0.486,0.735 -0.824,1.74425 -1.375,2.40625 -0.41,0.494 -0.73075,0.6635 -1.34375,0.8125 -1.581,0.379 -3.30625,0.16825 -4.90625,0.15625 -1.861,-0.011 -3.73925,0.20175 -5.53125,0.71875 -2.4,0.689 -4.55,1.91425 -6.625,3.28125 -0.938,0.62 -1.9135,1.4015 -3.0625,1.5625 -0.096,0.015 -0.15675,0.004 -0.21875,0 l -0.0312,0 c -3.469,-0.1 2.2905,-7.5665 2.9375,-8.3125 3.913,-4.498 9.2535,-7.449 15.1875,-8.25 0.906,-0.12188 1.85504,-0.19918 2.8125,-0.1875 z m 46,0.0312 c 2.1375,-0.10645 4.3075,0.27225 6.34375,0.84375 5.708,1.6 10.45675,5.14775 13.71875,10.09375 0.83099,1.257 3.68524,5.8625 0.28125,5.8125 -0.027,0 -0.0707,0.004 -0.0937,0 -0.015,0 -0.0163,-0.0272 -0.0312,-0.0312 -0.023,-0.004 -0.0395,0.007 -0.0625,0 -1.378,-0.23 -2.70675,-1.4745 -3.84375,-2.1875 -2.603,-1.623 -5.441,-2.80875 -8.5,-3.21875 -2.044,-0.272 -4.04975,-0.0332 -6.09375,-0.15625 -0.808,-0.05 -1.80125,0.0315 -2.40625,-0.5625 -0.613,-0.601 -1.044,-1.90075 -1.5,-2.59375 -0.459,-0.693 -0.956,-1.34075 -1.5,-1.96875 -0.578,-0.674 -2.62275,-2.029 -2.71875,-2.875 -0.184,-1.627 3.14825,-2.63 4.28125,-2.875 0.69675,-0.15125 1.4125,-0.24577 2.125,-0.28125 z m -44.34375,37.5625 c 2.63077,-0.0128 5.21,0.86437 5.40625,3.75 0.267,3.987 -4.68475,6.31225 -7.96875,6.65625 -2.691,0.283 -8.07575,0.202 -9.46875,-2.75 -0.023,-0.046 -0.0435,-0.11025 -0.0625,-0.15625 -0.011,-0.042 -0.0232,-0.083 -0.0312,-0.125 -0.59,-3.404 5.50475,-5.76 7.84375,-6.625 1.11262,-0.41213 2.70278,-0.74231 4.28125,-0.75 z m 42.1875,0.0625 c 1.46085,-0.11005 2.97275,0.0974 4.0625,0.4375 2.439,0.758 9.281,3.2905 8.5,6.8125 -0.008,0.031 -0.0163,0.0355 -0.0312,0.0625 l 0,0.0312 c -1.252,2.982 -6.63925,3.15675 -9.28125,2.96875 -3.292,-0.237 -8.4895,-2.40375 -8.1875,-6.46875 0.19375,-2.60812 2.50273,-3.66033 4.9375,-3.84375 z"/>
+                      </g>
+                    </svg>`
+                }
+            ]
+
+            var colorsMap = {};
+            $.each(colorsList, function(index, colorObj) {
+                colorsMap[colorObj.id] = colorObj;
+            });
+
+            var animalsMap = {};
+            $.each(animalList, function(index, animalObj) {
+                animalsMap[animalObj.id] = animalObj;
+            });
+
+            var onlineBuddiesMap = {};
+            /**
+             * Creates a Object with id as buddy id and object as value.
+             * This is useful for quick access of the buddy info by id.
+             */
+            function updateBuddyObjectMap(buddyList) {
+                onlineBuddiesMap = {};
+                $.each(buddyList, function(index, buddyObj) {
+                    onlineBuddiesMap[buddyObj.id] = buddyObj;
+                });
+            }
+
+            /**
+             * Function to update the buddy panel with
+             * udpate list of joined buddies
+             */
+            function upadteBuddyPanel(activeBuddiesList) {
+                // Creates a list of objects with id replaced by equivalent objects.
+                var activeBuddyMap = activeBuddiesList.map(function(buddy){
+                    return {
+                      id: buddy.id,
+                      isActive: buddy.isActive,
+                      isEditable: buddy.isEditable,
+                      isDeletable: buddy.isDeletable,
+                      animalObj: animalsMap[buddy.animalId],
+                      colorObj: colorsMap[buddy.colorId]
+                    }
+                });
+
+                var activeBuddySource   = $("#online_buddy_template").html();
+                var activeBuddyTemplate = Handlebars.compile(activeBuddySource);
+                var context = {onlineBuddies: activeBuddyMap};
+                $('.buddy_panel .buddy_icon').remove();
+                $('.buddy_panel').prepend(activeBuddyTemplate(context));
+                updateBuddyObjectMap(activeBuddiesList)
+            }
+
+            upadteBuddyPanel(onlineBuddies);
+            //console.log(activeBuddyTemplate(context));
+
+            // Populating the colors from the list of colors
+            var colorTemplateSource   = $("#buddy_color_selector").html();
+            var colorTemplate = Handlebars.compile(colorTemplateSource);
+            var context = {colors: colorsList};
+            $('.add_buddy_step_1 .step_body').append(colorTemplate(context));
+
+            // Populating the animals from the list of animals
+            var animalTemplateSource   = $("#buddy_animal_selector").html();
+            var animalTemplate = Handlebars.compile(animalTemplateSource);
+            var context = {animals: animalList};
+            var animalHtml = animalTemplate(context);
+            $('.add_buddy_step_2 .step_body').append(animalHtml);
+
+            // Modal Actions
+            $('.add_buddy_modal').on('click', '.close_add_buddy_modal', function() {
+                $('#add_buddy_modal').foundation('reveal', 'close');
+            });
+
+            $('.delete_buddy_modal').on('click', '.close_delete_buddy_modal', function() {
+                $('#delete_buddy_modal').foundation('reveal', 'close');
+            });
+
+            var currentSelectedAnimal = {};
+            var currentSelectedColor = {};
+            var currentSelectedBuddy = {};
+            var buddyClickedForDeletion = {};
+            var isEditMode = false;
+
+            /**
+             * Utility function to udpate variables and modal states on selection of color
+             */
+            function selectColor(id) {
+                $('.add_buddy_step_1 .selected').removeClass('selected');
+                $('.sample_buddy svg').css('background-color', '#fff');
+                if (id) {
+                    currentSelectedBuddy.colorId = id;
+                    currentSelectedColor = $.grep(colorsList, function(colorObj){return colorObj.id === id})[0];
+                    if (currentSelectedAnimal.id) {
+                        $('.sample_buddy path').css('fill', currentSelectedColor.code);
+                    } else {
+                        $('.sample_buddy svg').css('background-color', currentSelectedColor.code);
+                    }
+                    $('.add_buddy_step_1').find('[data=' + id + ']').addClass('selected');
+                }
+            }
+
+            /**
+             * Utility function to udpate variables and modal states on selection of animal
+             */
+            function selectAnimal(id) {
+                $('.add_buddy_step_2 .selected').removeClass('selected');
+                if (id) {
+                    currentSelectedBuddy.animalId = id;
+                    currentSelectedAnimal = $.grep(animalList, function(animalObj){return animalObj.id === id})[0];
+                    $('.sample_buddy').empty();
+                    $('.sample_buddy').html(currentSelectedAnimal.svg);
+                    if (currentSelectedColor.id) {
+                        $('.sample_buddy path').css('fill', currentSelectedColor.code);
+                    }
+                    $('.add_buddy_step_2').find('[data=' + id + ']').addClass('selected');
+                }
+            }
+
+            /**
+             * When a user selects a color we update the current* variables.
+             * We also update the sample logo on top right corner.
+             */
+            $('.add_buddy_step_1').on('click', '.buddy_color_option', function() {
+                selectColor(parseInt($(this).attr('data')));
+            });
+
+            /**
+             * When a user selects a animal we update the current* variables.
+             * We also update the sample logo on top right corner.
+             */
+            $('.add_buddy_step_2').on('click', '.buddy_animal', function() {
+                selectAnimal(parseInt($(this).attr('data')));
+            });
+
+            // Create the buddy logo
+            $('.add_buddy_icon').on('click', function() {
+                isEditMode = false;
+                currentSelectedBuddy = {};
+                currentSelectedAnimal = {};
+                currentSelectedColor = {};
+                selectAnimal();
+                selectColor();
+                $('.sample_buddy svg').empty();
+                $('.add_buddy_submit').html('Add');
+            });
+
+            /**
+             * Function to handle on click of the buddy
+             */
+            $('.buddy_panel').on('click', '.buddy_icon', function() {
+                currentSelectedBuddy = onlineBuddiesMap[parseInt($(this).attr('data'))];
+                // Do the required ajax call and update the onlineBuddiesMap
+                // to set the selected buddy as active
+                console.log('Clicked on the buddy icon');
+            });
+            /**
+             *  Editing the Buddy logo
+             *  On Clicking on any existing buddy modal opens up in the edit mode.
+             *  You can invoke your custom action here to disable the edit of a buddy
+             *  if (check if buddy editable) {
+             *      //true
+             *  } else {
+             *      return false;
+             *  }
+             */
+            $('.buddy_panel').on('click', '.buddy_icon .buddy_edit', function(e) {
+                e.stopPropagation();
+                isEditMode = true;
+                currentSelectedBuddy = onlineBuddiesMap[parseInt($(this).closest('.buddy_icon').attr('data'))];
+                selectAnimal(currentSelectedBuddy.animalId);
+                selectColor(currentSelectedBuddy.colorId);
+                $('.add_buddy_submit').html('Update');
+                $('#add_buddy_modal').foundation('reveal', 'open');
+            });
+
+            /**
+             * Handles the buddy delete event.
+             */
+            $('.buddy_panel').on('click', '.buddy_icon .buddy_delete', function(e) {
+                //e.stopPropagation();
+                buddyClickedForDeletion = onlineBuddiesMap[parseInt($(this).closest('.buddy_icon').attr('data'))];
+
+                console.log('Deleted the buddy');
+            })
+
+            function getDuplicateBuddies(selectedBuddy) {
+                let duplicateBuddies = onlineBuddies.filter(function(buddy){
+                    return (buddy.animalId === selectedBuddy.animalId && buddy.colorId === selectedBuddy.colorId);
+                });
+                return duplicateBuddies;
+            }
+
+            var buddyIdCount = 3;
+            /**
+             * On submitting the buddy form you can take actions based on the mode.
+             */
+            $('.add_buddy_submit').on('click', function(e) {
+                e.preventDefault();
+                if (!currentSelectedColor.id) {
+                    alert('Please select a valid color.');
+                    return;
+                }
+                if (!currentSelectedAnimal.id) {
+                    alert('Please select a valid animal.');
+                    return;
+                }
+                if (isEditMode) {
+                    //Checking for duplicate buddy
+                    var duplicateBuddy = getDuplicateBuddies(currentSelectedBuddy);
+                    if (duplicateBuddy.length) {
+                      if (duplicateBuddy.length === 1 && duplicateBuddy[0].id === currentSelectedBuddy.id) {
+                          //Case where the buddy was not changed.
+                          return false;
+                      } else if (duplicateBuddy.length > 1) {
+                        return false;
+                      }
+                    }
+                    /**
+                     * Send a api request to update the selected buddy.
+                     * Selected buddy's udpated data is in currentSelectedBuddy
+                     *
+                     * $.put('/api/to/update', function(data, error) {
+                     *    if (!error) {
+                     *        // Continue updating the onlineBuddies List as shown below
+                     *    } else {
+                     *        alert(error);
+                     *        console.log('Could not update the buddy logo.');
+                     *    }
+                     * })
+                     */
+
+                    onlineBuddies = onlineBuddies.map(function(buddy) {
+                        if (buddy.id === currentSelectedBuddy.id) {
+                            return currentSelectedBuddy;
+                        } else {
+                            return buddy;
+                        }
+                    });
+                } else {
+                    /**
+                     * Send a api request to add a new buddy
+                     * New Buddy information is in the currentSelectedBuddy
+                     * $.post('/api/to/add', function(data, error) {
+                     *    if (!error) {
+                     *        // Continue updating the onlineBuddies List as shown below
+                     *    } else {
+                     *        alert(error);
+                     *        console.log('Could not add a new buddy.');
+                     *    }
+                     * })
+                     *
+                     */
+                    if (getDuplicateBuddies(currentSelectedBuddy).length === 0) {
+                        onlineBuddies.push({
+                            id: buddyIdCount++,
+                            animalId: currentSelectedAnimal.id,
+                            colorId: currentSelectedColor.id,
+                            isActive: true,
+                            isEditable: false,
+                            isDeletable: true,
+                        });
+                        $('#add_buddy_modal').foundation('reveal', 'close');
+                        // You can do a submit or ajax call from here
+                        upadteBuddyPanel(onlineBuddies);
+                    } else {
+                        alert('Buddy already exist with this animal and color.');
+                    }
+                }
+            });
+
+            // Deletes the buddy from online buddies list
+            function deleteBuddy(buddyToDelete) {
+                onlineBuddies = onlineBuddies.filter(function(buddy){
+                  return buddy.id !== buddyToDelete.id;
+                });
+                upadteBuddyPanel(onlineBuddies);
+            }
+
+            /*
+            * Handles the event of delete from the delete icon on buddy icon.
+             */
+            $('.delete_buddy_submit').on('click', function() {
+                /**
+                 * Do the ajax call to delete the user selectedUser
+                 * and update the onlineBuddy list
+                 */
+                deleteBuddy(buddyClickedForDeletion);
+                $('#delete_buddy_modal').foundation('reveal', 'close');
+
+            });
+
+            /*
+            * Handles the event of delete from the delete button in edit buddy modal footer.
+             */
+            $('.add_buddy_modal .removeBuddy').on('click', function(){
+                /**
+                 * Place to remove the buddy and update the onlineBuddies list.
+                 * $.delete('/api/to/remove/buddy', function(data, error){
+                 *    if (!error) {
+                 *        // Continue updating the onlineBuddies List as shown below
+                 *    } else {
+                 *        alert(error);
+                 *    }
+                 * })
+                 */
+                deleteBuddy(currentSelectedBuddy);
+                $('#add_buddy_modal').foundation('reveal', 'close');
+            })
+
+            /**
+             * The delete button should be shown or hidden on depending upon the mode.
+             */
+            $(document).on('open.fndtn.reveal', '[data-reveal]', function () {
+                var modal = $(this);
+                if ($(this).attr('id') === 'add_buddy_modal') {
+                    if (isEditMode) {
+                        $('.add_buddy_modal .removeBuddy').show();
+                    } else {
+                        $('.add_buddy_modal .removeBuddy').hide();
+                    }
+                }
+            });
+
+            var triggerAction = function(event) {
+                if (event.pageX > ($(document).width() - 20) && !$('.buddy_panel').hasClass('visible')) {
+                    $('.buddy_panel').animate({"right":"0px"}, "slow").addClass('visible');
+                } else if (event.pageX < ($(document).width() - 80) && $('.buddy_panel').hasClass('visible')) {
+                    $('.buddy_panel').animate({"right":"-70px"}, "slow").removeClass('visible');
+                }
+            };
+
+            /**
+             * If you want the buddy panel to slide in on mouse move the trigger
+             * function makeBuddyPanelVisibleOnMouse as shown below
+             */
+            function makeBuddyPanelVisibleOnMouse() {
+                $('.buddy_panel').animate({"right":"-70px"}, "slow").removeClass('visible');
+                $(document).mousemove(triggerAction);
+            }
+
+            //makeBuddyPanelVisibleOnMouse();
+        });
+    </script>
+</body>
+</html>

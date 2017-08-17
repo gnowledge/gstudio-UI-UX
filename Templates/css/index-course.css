@@ -1,0 +1,63 @@
+/*Blue color variables*/
+/*Orange color variables*/
+html {
+  height: 100%; }
+
+body {
+  background: linear-gradient(135deg, #e5a426, #ae208c);
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+
+/*Custom css*/
+.course_content_header {
+  width: 100%;
+  display: block;
+  height: 60px;
+  background-color: #fff;
+  padding: 5px 15px;
+  box-shadow: 1px 0px 13px #000; }
+  .course_content_header .course-heading {
+    color: #a8bccc;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    line-height: 50px; }
+  .course_content_header .course-menu ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 12px;
+    color: #ce7869;
+    cursor: pointer;
+    font-size: 18px;
+    letter-spacing: 0.8px; }
+    .course_content_header .course-menu ul li.active, .course_content_header .course-menu ul li:hover {
+      border-bottom: 3px solid #ffc14e; }
+
+.course-content {
+  background: #fff;
+  margin: 20px auto;
+  padding: 20px 0px; }
+  .course-content ul.jqtree-tree .course-tree-node.jqtree-selected .jqtree-element {
+    background: #fff; }
+  .course-content ul.jqtree-tree .course-tree-node > div {
+    height: 35px; }
+    .course-content ul.jqtree-tree .course-tree-node > div a {
+      margin-right: 0.7em; }
+  .course-content .course-unit-name {
+    padding-left: 20px; }
+    .course-content .course-unit-name:not(:last-child) {
+      border-bottom: 1px solid #d2cfcf; }
+    .course-content .course-unit-name > div .jqtree-title {
+      color: #3c5264;
+      font-size: 19px;
+      font-weight: 600; }
+  .course-content .course-activity-group > div .jqtree-title {
+    color: #74a0c0;
+    font-size: 17px; }
+  .course-content .course-activity-name > div .jqtree-title {
+    color: #74a0c0;
+    font-size: 17px; }
+
+/*# sourceMappingURL=index-course.css.map */
